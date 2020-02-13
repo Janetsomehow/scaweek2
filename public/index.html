@@ -6,12 +6,87 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <div id="app" v-bind:title="div_title">
+
+      {{hello_message}}></div>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
+    
+   
     <!-- built files will be auto injected -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+      var v1 = new Vue({
+      
+      el: "#app",
+      
+      data: {
+      
+      hello_message: "Hello, there welcome to VueJS world",
+      
+      div_title: "This is running on different lifecycles",
+      
+      },
+      
+      beforeCreate: function(){ 
+      
+      alert('Before Create');
+      
+      },
+      
+      created: function(){ 
+      
+      alert('Created');
+      
+      },
+      
+      beforeMount: function(){ 
+      
+      alert('Before Mount');
+      
+      },
+      
+      mounted: function(){ 
+      
+      alert('Mounted');
+      
+      },
+      
+      beforeUpdate: function(){ 
+      
+      alert('Before Update');
+      
+      },
+      
+      updated: function(){ 
+      
+      alert('Updated');
+      
+      },
+      
+      beforeDestroy: function(){ 
+      
+      alert('Before Destroy');
+      
+      },
+      
+      destroyed: function(){ 
+      
+      alert('Destroyed');
+      
+      }
+      
+      });
+      
+      // To fire update
+      
+      v1.$data.hello_message = "New message";
+      
+      // This can be invoked to destroy the object, which will fire the destroy hook
+      
+      //v1.$destroy();
+      
+      </script>
   </body>
 </html>
